@@ -10,6 +10,7 @@ edition = "2021"
 [dependencies.render-api]
 path = "render-api"
 package = "render-api"
+features = ["client"]
 
 [dependencies.render]
 path = "render-stdout"

@@ -5,6 +5,7 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [lib]
+name = "render"
 crate-type = ["cdylib"]
 
 [dependencies]
@@ -12,3 +13,4 @@ crate-type = ["cdylib"]
 [dependencies.render-api]
 path = "../render-api"
 package = "render-api"
+features = []
