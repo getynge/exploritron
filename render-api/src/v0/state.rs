@@ -9,10 +9,6 @@ pub type Attribute = String;
 
 pub type AttributeSet = HashMap<String, Attribute>;
 
-/// Render state is a generic datastructure that renderers use to persist state between calls.
-/// The engine in no way guarantees that a renderer will remain in memory indefinitely, therefore state should be stored here.
-pub type RenderState = ();
-
 #[repr(C)]
 pub enum RenderContext {
     WorldTraversal,

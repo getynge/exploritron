@@ -1,12 +1,10 @@
 use std::ffi::CString;
-use crate::state::*;
-use crate::*;
+use crate::RenderState;
+use super::state::*;
+use super::*;
 
 #[link(name = "render", kind = "dylib")]
 extern {
-    /// expr_init initializes the renderer and then returns its persistent state
-    pub fn expr_init() -> *mut RenderState;
-
     /// expr_disconnect notifies the renderer that it is about to be stopped
     ///
     /// The return value is an error message if an error occurs, null otherwise
