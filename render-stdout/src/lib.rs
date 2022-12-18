@@ -1,5 +1,4 @@
 use render_api::{*, state::*};
-use std::ffi::CString;
 use std::ptr::null_mut;
 
 #[no_mangle]
@@ -33,6 +32,6 @@ pub extern "C" fn expr_user_callback(render_state: *mut RenderState, callback: e
 }
 
 #[no_mangle]
-pub extern "C" fn expr_register_attribute_resolver(render_state: *mut RenderState, resolver: extern fn(*mut AttributeSet, *mut i8) -> Attribute) -> *mut i8 {
+pub extern "C" fn expr_register_attribute_resolver(render_state: *mut RenderState, resolver: extern fn(*mut AttributeSet, *mut i16) -> Attribute) -> *mut i8 {
     null_mut()
 }

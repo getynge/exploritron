@@ -41,7 +41,7 @@ extern {
     /// * The CString is any message accompanying the event
     ///
     /// The return value is an error message if an error occurs, null otherwise
-    pub fn expr_frame_callback(render_state: *mut RenderState, callback: extern fn(RenderResult, i32, *mut State, CString)) -> *mut i8;
+    pub fn expr_frame_callback(render_state: *mut RenderState, callback: extern fn(RenderResult, i32, *mut State, *mut i8)) -> *mut i8;
 
     /// expr_user_callback calls the provided callback upon a user-triggered event
     ///
@@ -55,7 +55,7 @@ extern {
     ///   If EventKind is a command, CString is the command text.
     ///
     /// The return value is an error message if an error occurs, null otherwise
-    pub fn expr_user_callback(render_state: *mut RenderState, callback: extern fn(EventKind, CString)) -> *mut i8;
+    pub fn expr_user_callback(render_state: *mut RenderState, callback: extern fn(EventKind, *mut i8)) -> *mut i8;
 
     /// expr_register_attribute_resolver registers a function for the renderer to call when it needs to read an attribute
     ///
