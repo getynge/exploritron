@@ -5,13 +5,13 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[build-dependencies.render]
+path = "render-stdout"
+package = "render-stdout"
+
 [dependencies]
 
 [dependencies.render-api]
 path = "render-api"
 package = "render-api"
 features = ["client"]
-
-[dependencies.render]
-path = "render-stdout"
-package = "render-stdout"

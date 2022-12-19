@@ -1,9 +1,13 @@
-use render_api::{*, state::v0::*};
+use std::mem::MaybeUninit;
+use render_api::{*, v0::*, v0::state::*};
 use std::ptr::null_mut;
 
 #[no_mangle]
-pub extern "C" fn expr_init() -> *mut RenderState {
-    null_mut()
+pub extern "C" fn expr_init() -> InitResult {
+    unsafe {
+        // TODO: this is undefined behavior, fix it once we actually start implementing logic
+        MaybeUninit::uninit().assume_init()
+    }
 }
 
 #[no_mangle]
@@ -27,11 +31,6 @@ pub extern "C" fn expr_frame_callback(render_state: *mut RenderState, callback: 
 }
 
 #[no_mangle]
-pub extern "C" fn expr_user_callback(render_state: *mut RenderState, callback: extern fn(EventKind, *mut i8)) -> *mut i8 {
-    null_mut()
-}
-
-#[no_mangle]
-pub extern "C" fn expr_register_attribute_resolver(render_state: *mut RenderState, resolver: extern fn(*mut AttributeSet, *mut i16) -> Attribute) -> *mut i8 {
+pub extern "C" fn expr_user_callback(render_state: *mut RenderState, callback: extern fn(UserEvent, *mut i8)) -> *mut i8 {
     null_mut()
 }
