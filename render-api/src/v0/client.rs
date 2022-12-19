@@ -56,6 +56,7 @@ pub unsafe fn reconnect(render_state: *mut RenderState) -> *mut i8 {
 ///
 /// # Notes
 /// The return value is an error message if an error occurs, null otherwise
+#[inline]
 pub unsafe fn push_state(render_state: *mut RenderState, game_state: *mut State) -> *mut i8 {
     lazy_static! {
         static ref push_state: Symbol<'static, unsafe extern fn(*mut RenderState, *mut State) -> *mut i8>
@@ -82,6 +83,7 @@ pub unsafe fn push_state(render_state: *mut RenderState, game_state: *mut State)
 ///
 /// # Notes
 /// The return value is an error message if an error occurs, null otherwise
+#[inline]
 pub unsafe fn frame_callback(render_state: *mut RenderState, callback: unsafe extern fn(RenderResult, i32, *mut State, *mut i8)) -> *mut i8 {
     lazy_static! {
         static ref frame_callback:
@@ -109,6 +111,7 @@ pub unsafe fn frame_callback(render_state: *mut RenderState, callback: unsafe ex
 ///
 /// # Notes
 /// The return value is an error message if an error occurs, null otherwise
+#[inline]
 pub unsafe fn user_callback(render_state: *mut RenderState, callback: unsafe extern fn(UserEvent, *mut i8)) -> *mut i8 {
     lazy_static! {
         static ref user_callback:
